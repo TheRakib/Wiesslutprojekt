@@ -11,7 +11,6 @@ class Form extends Component {
             mobile: undefined
         }
 
-    
     }
     
     //spara state i localStorage
@@ -48,7 +47,7 @@ class Form extends Component {
         return (
             <div>
                 <form onSubmit={this.handleOnSubmit}>
-                    <input type={"text"} placeholder={"ange ditt name"} onChange={this.handleOnChangeName}></input>
+                    <input type={"text"} placeholder={"ange ditt name"}  onChange={this.handleOnChangeName}></input>
                     <input type={"text"} placeholder={"ange önskat datum"} onChange={this.handleOnChangeTime}></input>
                     <input type={"number"} placeholder={"ange telefon nummer"} onChange={this.handleOnChangeMobile}></input>
                     <button type={"submit"} onSubmit={this.handleOnSubmit}>Bekräfta</button>
