@@ -10,22 +10,22 @@ class Form extends Component {
             appointmentTime: undefined,
             mobile: undefined
         }
-     
 
+    
     }
+    
+    //spara state i localStorage
+    // this and arrow function
 
-//spara state i localStorage
-// this and arrow function
 
-
-    handleOnChangeName= (e)=> {
+    handleOnChangeName = (e) => {
         this.setState({ name: e.target.value })
 
     }
-    handleOnChangeTime=(e) =>{
+    handleOnChangeTime = (e) => {
         this.setState({ appointmentTime: e.target.value })
     }
-    handleOnChangeMobile=(e)=> {
+    handleOnChangeMobile = (e) => {
         this.setState({ mobile: e.target.value })
     }
 
