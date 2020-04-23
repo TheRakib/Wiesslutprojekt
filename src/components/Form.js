@@ -17,7 +17,7 @@ class Form extends Component {
     // this and arrow function
 
 
-    handleOnChangeName = (e) => {
+    /* handleOnChangeName = (e) => {
         this.setState({ name: e.target.value })
 
     }
@@ -27,14 +27,16 @@ class Form extends Component {
     handleOnChangeMobile = (e) => {
         this.setState({ mobile: e.target.value })
     }
-
+ */
 
 
     //skapa en metod 
-    handleOnSubmit(e) {
+    handleOnSubmit(e){
         e.preventDefault()
-
-
+     /* this.setState({name:e.target.elements.Name.value, 
+          appointmentTime: e.target.elements.Time.value 
+ }) */
+  // console.log(e.target.elements.Name.value)
         //this.setState({})
     }
     // uppdatera state med setState()
@@ -47,15 +49,13 @@ class Form extends Component {
         return (
             <div>
                 <form onSubmit={this.handleOnSubmit}>
-                    <input type={"text"} placeholder={"ange ditt name"}  onChange={this.handleOnChangeName}></input>
-                    <input type={"text"} placeholder={"ange önskat datum"} onChange={this.handleOnChangeTime}></input>
-                    <input type={"number"} placeholder={"ange telefon nummer"} onChange={this.handleOnChangeMobile}></input>
-                    <button type={"submit"} onSubmit={this.handleOnSubmit}>Bekräfta</button>
+                    <input type={"text"} placeholder={"ange ditt name"}  name={"Name"}></input>
+                    <input type={"text"} placeholder={"ange önskat datum"} name={"Time"}></input>
+                    <input type={"number"} placeholder={"ange telefon nummer"} name={"Mobile"}></input>
+                    <button >Bekräfta</button>
                 </form>
 
-                <div>  {this.state.name}</div>
-                <div>  {this.state.appointmentTime}</div>
-                <div>  {this.state.mobile}</div>
+                {this.state.name}
             </div>
         )
     }
