@@ -2,12 +2,13 @@ import React from "react";
 
 //npm i react-router-dom --save
 import { BrowserRouter, Route, Switch} from "react-router-dom";
-import Card from "./Card";
+
 import Booking from "./Booking";
 
 import Navbar from "./Navbar"
 import Form from "./Form";
 import Notfoundpage from "./Notfoundpage";
+import App from "./App";
 //import Formular from "../pages/Formular"
 
 const Approute = ()=>{
@@ -19,7 +20,7 @@ const Approute = ()=>{
 
                  <Navbar/>
                  <Switch>
-                 <Route path="/" component= {Card} exact ></Route>
+                 <Route path="/" component={App} exact ></Route>
                  <Route path="/Bookings" component= {Booking} exact></Route>
                  <Route path="/form" exact component= {Form}></Route>
                  <Route component={Notfoundpage}></Route>
@@ -32,3 +33,13 @@ const Approute = ()=>{
 }
 
 export default Approute;
+
+//stänga cmsserver från playground
+// skapa en cmsserver i din original app 
+// starta den 
+// gå in till admin dashboard 
+//skapa minst 8 produkter 
+// presentera dem. 
+//glöm ej publicera. ger behörighet
+
+// npm run develop  //för att starta strapi server

@@ -1,22 +1,46 @@
 
-import React from "react";
+import React, {Component} from "react";
 import Card from "./Card";
-import faker from "faker";
+import axios from "axios";
 
-import Form from "./Form"
 
-const App = ()=>{
+
+class App extends Component{
+
+
+      state={
+            products: []
+      }
+
+onClickApi(){
+      axios.get("http://localhost:1337/products").then( res=>{
+            console.log(res.data);
+            this.setState ( {products:res.data})
+      })
+//this.state.products
+}
+
+      render() {
     return(
           <div>
-                <nav>Narbar ska läggas här</nav>
-                <Card  image={faker.image.cats()}/>
-                <Card  image={faker.image.avatar()} />
 
-                <Form/>
-                 
+                {this.state.products.map((product) =>
+                      <Card 
+                      key={product.id}
+                      title={product.title} 
+                      price={product.price}
+                      description= {product.description}
+                      image={"http://localhost:1337"+product.image.url}
+                      
+                      
+                      />
+                )}
+               
+                <button onClick={this.onClickApi.bind(this)}>Hämta</button>
 
           </div>
 
     )
+      }
 }
 export default App;
