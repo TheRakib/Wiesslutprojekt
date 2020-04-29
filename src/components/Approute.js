@@ -9,6 +9,7 @@ import Navbar from "./Navbar"
 import Form from "./Form";
 import Notfoundpage from "./Notfoundpage";
 import App from "./App";
+import Adminform from "./Adminform";
 //import Formular from "../pages/Formular"
 
 const Approute = ()=>{
@@ -23,6 +24,7 @@ const Approute = ()=>{
                  <Route path="/" component={App} exact ></Route>
                  <Route path="/Bookings" component= {Booking} exact></Route>
                  <Route path="/form" exact component= {Form}></Route>
+                 <Route path="/admin" exact component= {Adminform}/>
                  <Route component={Notfoundpage}></Route>
                  </Switch>
             </BrowserRouter>

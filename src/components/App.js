@@ -5,6 +5,11 @@ import axios from "axios";
 
 
 
+
+//get 
+//post
+//put
+//delete
 class App extends Component{
 
 
@@ -12,31 +17,42 @@ class App extends Component{
             products: []
       }
 
-onClickApi(){
-      axios.get("http://localhost:1337/products").then( res=>{
+
+// componentDidUpdate(){
+//         console.log("component did update")
+// }
+
+//component renderades/mounted
+async componentDidMount (){
+// async await 
+    const res=  await  axios.get("http://localhost:1337/products")
+    
             console.log(res.data);
             this.setState ( {products:res.data})
-      })
+     /*  axios.get("http://localhost:1337/products").then( res=>{
+            console.log(res.data);
+            this.setState ( {products:res.data})
+      }) promise  */
 //this.state.products
 }
 
-      render() {
+render() {
     return(
           <div>
 
                 {this.state.products.map((product) =>
+                     
                       <Card 
                       key={product.id}
                       title={product.title} 
                       price={product.price}
                       description= {product.description}
                       image={"http://localhost:1337"+product.image.url}
-                      
-                      
-                      />
+                       />
                 )}
                
-                <button onClick={this.onClickApi.bind(this)}>Hämta</button>
+
+               
 
           </div>
 
