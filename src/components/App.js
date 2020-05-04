@@ -47,7 +47,7 @@ render() {
                       title={product.title} 
                       price={product.price}
                       description= {product.description}
-                      image={"http://localhost:1337"+product.image.url}
+                     
                        />
                 )}
                
