@@ -11,6 +11,7 @@ import Notfoundpage from "./Notfoundpage";
 import App from "./App";
 import Adminform from "./Adminform";
 import AdminLogin from "./Auth/AdminLogin"
+import AdminSida from "./AdminSida";
 //import Formular from "../pages/Formular"
 
 const Approute = ()=>{
@@ -26,7 +27,7 @@ const Approute = ()=>{
                  <Route path="/Bookings" component= {Booking} exact></Route>
                  <Route path="/form" exact component= {Form}></Route>
                  <Route path="/admin" exact component= {Adminform}/>
-                 <Route path="/adminLogin" exact component={AdminLogin}></Route>
+                 <Route path="/adminsida" exact component={AdminSida}></Route>
                  <Route component={Notfoundpage}></Route>
                  </Switch>
             </BrowserRouter>

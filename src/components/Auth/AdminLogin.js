@@ -9,6 +9,7 @@ import axios from "axios";
 
 class AdminLogin extends Component {
 
+//via props
  state= {
      condition:true
  }
@@ -31,6 +32,7 @@ onSubmitLogin(e){
     console.log('Well done!');
     console.log('User profile', response.data.user);
     console.log('User token', response.data.jwt);
+   this.props.userInfo(response.data.jwt)
   })
   .catch(error => {
     // Handle error.
