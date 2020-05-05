@@ -60,7 +60,7 @@ async onSubmitToApi(e){
                       name="file" onChange={this.eventChange.bind(this)}/>
                      
                      <button>Spara</button>
-                     {this.state.title}
+                     
                  </form>
 
             </div>

@@ -11,7 +11,8 @@ class AdminLogin extends Component {
 
 //via props
  state= {
-     condition:true
+     condition:true, 
+     user:""
  }
  onClickRegister(){
      this.setState({condition:false})
@@ -32,7 +33,9 @@ onSubmitLogin(e){
     console.log('Well done!');
     console.log('User profile', response.data.user);
     console.log('User token', response.data.jwt);
-   this.props.userInfo(response.data.jwt)
+    //uppdatera state med response , localhost
+   //this.props.userInfo(response.data.jwt)
+   this.props.userCredential(response.data.user)
   })
   .catch(error => {
     // Handle error.
@@ -43,7 +46,7 @@ onSubmitLogin(e){
  onSubmitRegister(e){
      e.preventDefault();
      axios
-  .post('http://localhost:1337/auth/local/register', {
+    .post('http://localhost:1337/auth/local/register', {
     username: e.target.elements.username.value,
     email: e.target.elements.email.value,
     password: e.target.elements.password.value,
@@ -53,6 +56,8 @@ onSubmitLogin(e){
     console.log('Well done!');
     console.log('User profile', response.data.user);
     console.log('User token', response.data.jwt);
+    //localhost eller state med response data
+     this.props.userCredential(response.data.user)
   })
   .catch(error => {
     // Handle error.

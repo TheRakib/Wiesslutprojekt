@@ -5,19 +5,24 @@ import AdminLogin from "./Auth/AdminLogin"
 
 class AdminSida extends Component{
 
-
-state={ user: false}
+state={ user: null}
 
 
     render(){
         return(
             <div>
-                visa adminlogin
+                
+                {!this.state.user &&  <AdminLogin userCredential={ (e)=> this.setState({user:e.email})}  /> }
+                 
+                 
 
-                <AdminProfile />
-                or
-                visa adminprofile
-                <AdminLogin userInfo={(e)=> console.log(e)}  />
+                {this.state.user && <AdminProfile  userData={ this.state.user}/>}
+                
+                
+
+                
+               
+               
             </div>
         )
     }
