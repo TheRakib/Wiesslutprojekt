@@ -28,7 +28,7 @@ async onSubmitToApi(e){
        title: e.target.elements.title.value,
        description: e.target.elements.description.value,
        price: e.target.elements.price.value
-
+  
    })
    console.log(res)
 
@@ -51,6 +51,7 @@ async onSubmitToApi(e){
     render(){
         return(
             <div>
+                Du måste vara admin för att skapa produkter. (villkor)
                  <form onSubmit={this.onSubmitToApi.bind(this)}>
                      <input type="text" name="title"/>
                      <input type="text" name="description"/>

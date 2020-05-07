@@ -1,28 +1,24 @@
-import React, {Component} from "react";
+import React, { Component } from "react";
 import AdminProfile from "./Auth/AdminProfile";
-import AdminLogin from "./Auth/AdminLogin"
+import AdminLogin from "./Auth/AdminLogin";
+class AdminSida extends Component {
+    state = {
+        user: null || localStorage.getItem("user"),
+        jwt: null
+    }
+    render() {
 
-
-class AdminSida extends Component{
-
-state={ user: null}
-
-
-    render(){
-        return(
+        const loggedIn = this.state.user||localStorage.getItem("jwt");
+        return (
             <div>
-                
-                {!this.state.user &&  <AdminLogin userCredential={ (e)=> this.setState({user:e.email})}  /> }
-                 
-                 
-
-                {this.state.user && <AdminProfile  userData={ this.state.user}/>}
-                
-                
-
-                
-               
-               
+                {!loggedIn ?
+                    <AdminLogin userCredential={(e, jwt) => {
+                        this.setState({ user: e.email, jwt: jwt })
+                        localStorage.setItem("jwt", this.state.jwt)
+                        localStorage.setItem("user", this.state.user)
+                    }} /> :
+                    <AdminProfile userData={this.state.user} />
+                }
             </div>
         )
     }
@@ -30,4 +26,6 @@ state={ user: null}
 
 export default AdminSida;
 
-//child till parent
+//Lägg till en logout component 
+//Visa den i navbar om användare är inloggat 
+//Flytta adminForm i adminProfile

@@ -15,7 +15,8 @@ const Navbar = ()=>{
     <div className={"navbar-nav"}>
       <Link className={"nav-item nav-link active"} to="/">Home <span className="sr-only">(current)</span></Link>
       <Link className={"nav-item nav-link"} to="/card">Features</Link>
-       <Link className={"nav-item nav-link"} to="/adminLogin">Admin</Link>
+       <Link className={"nav-item nav-link"} to="/adminsida">Admin</Link>
+        <Link className={"nav-item nav-link"} to="/admin">AdminForm</Link>
        <Link className={"nav-item nav-link"} to="/bookings">Booking</Link>
        <Link className= {"nav-item nav-link"} to="/Form">Form</Link>
     </div>

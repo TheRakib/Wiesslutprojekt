@@ -24,7 +24,7 @@ class AdminLogin extends Component {
 onSubmitLogin(e){
     e.preventDefault();
     axios
-  .post('http://localhost:1337/auth/local', {
+   .post('http://localhost:1337/auth/local', {
     identifier: e.target.elements.email.value,
     password: e.target.elements.password.value,
   })
@@ -35,7 +35,7 @@ onSubmitLogin(e){
     console.log('User token', response.data.jwt);
     //uppdatera state med response , localhost
    //this.props.userInfo(response.data.jwt)
-   this.props.userCredential(response.data.user)
+   this.props.userCredential(response.data.user, response.data.jwt)
   })
   .catch(error => {
     // Handle error.
@@ -57,7 +57,7 @@ onSubmitLogin(e){
     console.log('User profile', response.data.user);
     console.log('User token', response.data.jwt);
     //localhost eller state med response data
-     this.props.userCredential(response.data.user)
+     this.props.userCredential(response.data.user, response.data.jwt)
   })
   .catch(error => {
     // Handle error.
