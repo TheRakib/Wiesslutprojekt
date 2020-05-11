@@ -12,6 +12,7 @@ import App from "./App";
 import Adminform from "./Adminform";
 import AdminLogin from "./Auth/AdminLogin"
 import AdminSida from "./AdminSida";
+import FirebaseTest from "./FirebaseTest";
 //import Formular from "../pages/Formular"
 
 const Approute = ()=>{
@@ -28,6 +29,7 @@ const Approute = ()=>{
                  <Route path="/form" exact component= {Form}></Route>
                  <Route path="/admin" exact component= {Adminform}/>
                  <Route path="/adminsida" exact component={AdminSida}></Route>
+                 <Route path="/firebasetest" exact component={FirebaseTest}></Route>
                  <Route component={Notfoundpage}></Route>
                  </Switch>
             </BrowserRouter>

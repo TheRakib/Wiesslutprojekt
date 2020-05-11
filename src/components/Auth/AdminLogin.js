@@ -35,7 +35,8 @@ onSubmitLogin(e){
     console.log('User token', response.data.jwt);
     //uppdatera state med response , localhost
    //this.props.userInfo(response.data.jwt)
-   this.props.userCredential(response.data.user, response.data.jwt)
+   // props som kommer från parent och skickade vi den jwt token och user info till
+    this.props.userCredential(response.data.user, response.data.jwt)
   })
   .catch(error => {
     // Handle error.

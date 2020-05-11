@@ -6,9 +6,17 @@ import axios from "axios";
 
 class Adminform extends Component{
 
-    state={
-         image:" "
+constructor(props){
+    super(props)
+    this.state={
+         image:" ", 
+         test:""
     }
+this.setState({test: localStorage.getItem("test")});
+
+}
+    
+
 eventChange(e){
     console.log(e.target.files[0])
     this.setState({image:e.target.files[0]})
@@ -49,20 +57,22 @@ async onSubmitToApi(e){
       console.log(resPic)}
 
     render(){
+        const inloggad= localStorage.getItem("jwt")
+
         return(
             <div>
-                Du måste vara admin för att skapa produkter. (villkor)
-                 <form onSubmit={this.onSubmitToApi.bind(this)}>
+                {inloggad ? 
+                
+             <form onSubmit={this.onSubmitToApi.bind(this)}>
                      <input type="text" name="title"/>
                      <input type="text" name="description"/>
                      <input type="number" name="price"/>
 
-                     <input type="file"
-                      name="file" onChange={this.eventChange.bind(this)}/>
+                     <input type="file" name="file" onChange={this.eventChange.bind(this)}/>
                      
                      <button>Spara</button>
                      
-                 </form>
+                 </form> :  <div> Du måste vara admin för att kunna logga in</div> }
 
             </div>
         )
