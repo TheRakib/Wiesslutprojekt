@@ -13,7 +13,9 @@ class FirebaseTest extends Component {
         //alt
         const docRef2 = firebase.firestore().collection("booking").doc("info2")
 //läser data from firebase
-        docRef.get().then(booking => {
+        docRef
+        .get()
+        .then(booking => {
             if (booking.exists) {
                 console.log("document data: ", booking.data())
             }

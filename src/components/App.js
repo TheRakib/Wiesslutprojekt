@@ -44,6 +44,7 @@ render() {
                      
                       <Card 
                       key={product.id}
+                      docId={product.id}
                       title={product.title} 
                       price={product.price}
                       description= {product.description}

@@ -2,9 +2,11 @@ import firebase from "firebase/app";
 import "firebase/firestore";
 import "firebase/auth";
 
-
+// npm i -g firebase-tools paketet 
+// npm i firebase
+//....AIzaSyApkZahEANZ9nbjQa3Lu_MY6etuB_BAJmQ
 const firebaseConfig = {
-  apiKey: "AIzaSyApkZahEANZ9nbjQa3Lu_MY6etuB_BAJmQ",
+  apiKey: "",
   authDomain: "klassprojekt-f7e1d.firebaseapp.com",
   databaseURL: "https://klassprojekt-f7e1d.firebaseio.com",
   projectId: "klassprojekt-f7e1d",
@@ -14,9 +16,10 @@ const firebaseConfig = {
   measurementId: "G-WFQ7YN5RL6"
 };
 
+//initialize 
 firebase.initializeApp(firebaseConfig);
 
-//firebase.firestore().settings({timestampsInSnapshots:true});
+
 
 export const googleProvider = new firebase.auth.GoogleAuthProvider();
 // en till 
