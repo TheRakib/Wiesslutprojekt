@@ -4,6 +4,7 @@ import firebase from "./FirebaseConfig"
 
 
 
+
 class FirebaseTest extends Component {
 
     onClickFirebase() {

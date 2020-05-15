@@ -29,50 +29,81 @@ const password = e.target.elements.password.value;
     firebase
     .auth()
     .signInWithEmailAndPassword(email, password)
-    .then(res=> this.props.userCredential(res.user.email)
+    .then(res=>
+    
+    //anropa showDisplayName
+     this.props.userCredential(res.user.email)
+     
+     )
     
     //react-router 
     //navigate 
     // skydda routerna 
     
-    
-     )
-
-    
-
 }
 // reset password 
 // mail och mailer reset länk och mall till användare 
 
 
  onSubmitRegister(e){
-     e.preventDefault();
+   
      const email= e.target.elements.email.value;
      const password= e.target.elements.password.value;
+     const displayName = e.target.elements.username.value;
+      e.preventDefault();
 
      firebase
      .auth()
      .createUserWithEmailAndPassword(email, password)
-     .then(res=> this.props.userCredential(res.user.email))
-   
-   // aktivera verifering av email 
-   
+     .then( (res)=>{
+
+         res.user.sendEmailVerification()
+         this.props.userCredential(res.user.email)
+         this.props.showDisplayName(displayName)
+     })
+     //.then(()=>{
+     /*      firebase.auth().onAuthStateChanged((user)=>{
+            user.updateProfile({
+         displayName :username
+     })
+  console.log("display name"+ this.state.displayName)}) */
+    // })
+
+ // aktivera verifering av email
+ 
+ }
+
+
+ resetPassword(e){
+     var auth = firebase.auth();
+var emailAddress = e.target.elements.resetEmail.value;
+
+auth.sendPasswordResetEmail(emailAddress).then(function() {
+  // Email sent.
+  console.log("email sent")
+})
+e.preventDefault();
  }
     render(){
         return(
-            <div> 
-             
-
+            <div>
          {this.state.condition  && 
          <div>
             <h2>Login</h2>
          <form   onSubmit={this.onSubmitLogin.bind(this)}>
                     <input type="email"   name="email"/>
                     <input type="password" name="password" />
-                    <button>Login</button>
-                    
+                    <button>Login</button>  
                 </form>
-                
+            
+             
+             <form onSubmit={this.resetPassword.bind(this)}>
+                 <input type="email" name="resetEmail"></input>
+                 <button >Reset password </button>
+             </form>
+               
+               
+               
                  </div>
                 
                 }
@@ -87,9 +118,10 @@ const password = e.target.elements.password.value;
                      <input type="email" name="email" />
                      <input type="password" name="password" />
 
-                    <button>Register</button>
+                    <button >Register</button>
 
                 </form>
+                
                 </div>
                 
                 }

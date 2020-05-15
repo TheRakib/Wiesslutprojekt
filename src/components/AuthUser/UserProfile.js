@@ -1,6 +1,7 @@
 // testa skapa:  Dashboard
 //admin profile
 import React, {Component} from "react";
+
 import firebase from "../FirebaseConfig";
 
 //navigate("/userprofile")
@@ -25,11 +26,25 @@ class UserProfile extends Component{
 
     //edit på deras profile info
 
+deleteAccount(){
+    const userfromLocal = localStorage.getItem("user");
+    console.log(userfromLocal);
+    var user = firebase.auth().currentUser;
+    console.log(user);
 
+   user.delete().then(function() {
+  // User deleted.
+}).catch(function(error) {
+  // An error happened.
+});
+
+}
     render(){
         return(
             <div>
                 Profile info {this.props.userData}
+
+                <button onClick={this.deleteAccount.bind(this)}> Radera konto</button>
                  <button onClick={this.logOut.bind(this)}> Logout</button>
                  
             </div>

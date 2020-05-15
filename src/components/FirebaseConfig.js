@@ -4,9 +4,12 @@ import "firebase/auth";
 
 // npm i -g firebase-tools paketet 
 // npm i firebase
-//....AIzaSyApkZahEANZ9nbjQa3Lu_MY6etuB_BAJmQ
+//....
+//.env 
+//config  exportera objectet
+// object.apikey
 const firebaseConfig = {
-  apiKey: "",
+  apiKey: "AIzaSyApkZahEANZ9nbjQa3Lu_MY6etuB_BAJmQ",
   authDomain: "klassprojekt-f7e1d.firebaseapp.com",
   databaseURL: "https://klassprojekt-f7e1d.firebaseio.com",
   projectId: "klassprojekt-f7e1d",
@@ -21,8 +24,8 @@ firebase.initializeApp(firebaseConfig);
 
 
 
-export const googleProvider = new firebase.auth.GoogleAuthProvider();
+//export const googleProvider = new firebase.auth.GoogleAuthProvider();
 // en till 
 
-export const auth = firebase.auth();
+//export const auth = firebase.auth();
 export  default firebase;
