@@ -14,6 +14,7 @@ import AdminLogin from "./Auth/AdminLogin"
 import AdminSida from "./AdminSida";
 import FirebaseTest from "./FirebaseTest";
 import UserPage from "./AuthUser/UserPage";
+import UserProfile from "./AuthUser/UserProfile";
 //import UserLogin from "./AuthUser/UserLogin";
 //import Formular from "../pages/Formular"
 
@@ -29,7 +30,7 @@ const Approute = ()=>{
                  <Route path="/" component={App} exact ></Route>
                  <Route path="/Bookings" component= {Booking} exact></Route>
                  <Route path="/form" exact component= {Form}></Route>
-
+                 <Route path="/userprofile" exact component={UserProfile}></Route>
                  <Route path="/adminsida" exact component={AdminSida}></Route>
                  <Route path="/firebasetest" exact component={FirebaseTest}></Route>
                  

@@ -69,7 +69,26 @@ This section has moved here: https://facebook.github.io/create-react-app/docs/tr
 
 
 
-1. show displayname
-2. email verification
-3. reset password
-4. delete user 
+1. Show displayname
+2. Email verification
+3. Reset password
+4. Delete user 
+
+http authentication vs api keys
+* authentication
+* oauth  -> open authorisation
+* smtp  -> mail
+* relation mellan användare och booking -> 
+* env fil /skydda api nycklarna -> env fil för att skydda känsliga info.
+
+-----
+gruppInlämning 2: 
+  * Strapi authentication 
+  * Update 
+  * Delete
+  * React och strapi på LIVE
+  * CI integration
+
+
+----
+* reach-router

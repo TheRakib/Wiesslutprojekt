@@ -17,7 +17,7 @@ class UserProfile extends Component{
        firebase.auth().signOut();
     }
     //hämta data från firebase
-    // profilbild
+    // profilbild8
     // radera kontot
     // finnas på databasen
     // raderar dem
@@ -44,7 +44,7 @@ deleteAccount(){
             <div>
                 Profile info {this.props.userData}
 
-                <button onClick={this.deleteAccount.bind(this)}> Radera konto</button>
+                  <button onClick={this.deleteAccount.bind(this)}> Radera konto</button>
                  <button onClick={this.logOut.bind(this)}> Logout</button>
                  
             </div>
