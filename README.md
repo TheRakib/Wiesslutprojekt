@@ -75,9 +75,9 @@ This section has moved here: https://facebook.github.io/create-react-app/docs/tr
 4. Delete user 
 
 http authentication vs api keys
-* authentication
-* oauth  -> open authorisation
-* smtp  -> mail
+* authentication **
+* oauth  -> open authorisation**
+* smtp  -> mail  **  Sendgrid något liknande 
 * relation mellan användare och booking -> 
 * env fil /skydda api nycklarna -> env fil för att skydda känsliga info.
 

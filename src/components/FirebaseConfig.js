@@ -8,9 +8,14 @@ import "firebase/auth";
 //.env 
 //config  exportera objectet
 // object.apikey
+
+//npm i dotenv 
+require('dotenv').config()
+
 const firebaseConfig = {
-  apiKey: "AIzaSyApkZahEANZ9nbjQa3Lu_MY6etuB_BAJmQ",
-  authDomain: "klassprojekt-f7e1d.firebaseapp.com",
+  //process.env.REACT_APP_API_KEY
+  apiKey: process.env.REACT_APP_APIKEY,
+  authDomain: process.env.REACT_APP_AUTHDOMAIN,
   databaseURL: "https://klassprojekt-f7e1d.firebaseio.com",
   projectId: "klassprojekt-f7e1d",
   storageBucket: "klassprojekt-f7e1d.appspot.com",

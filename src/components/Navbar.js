@@ -19,6 +19,7 @@ const Navbar = ()=>{
         <Link className={"nav-item nav-link"} to="/admin">AdminForm</Link>
        <Link className={"nav-item nav-link"} to="/bookings">Booking</Link>
        <Link className= {"nav-item nav-link"} to="/Form">Form</Link>
+        <Link className= {"nav-item nav-link"} to="/contact">Contact</Link>
     </div>
   </div>
 </nav>

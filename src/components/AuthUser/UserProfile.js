@@ -34,6 +34,8 @@ deleteAccount(){
 
    user.delete().then(function() {
   // User deleted.
+  localStorage.clear();
+       window.location.reload(false);
 }).catch(function(error) {
   // An error happened.
 });

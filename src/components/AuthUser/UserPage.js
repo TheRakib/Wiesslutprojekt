@@ -11,17 +11,33 @@ class UserPage extends Component {
 
     }
 
-
+componentDidMount(){
+    firebase.auth().onAuthStateChanged(
+ user=> this.setState({user: user.email, displayName:user.displayName})
+    )
+    
+}
 
     //const enfunction = ()=> { }
-
+//varje ändras state renderas componentet igen.
     render() {
 
         const loggedIn = this.state.user || localStorage.getItem("user");
         return (
             <div>
                 {!loggedIn ?
-                    <UserLogin userCredential={(user) => {
+                    <UserLogin  /> :
+                    <UserProfile userData={this.state.displayName ||this.state.user} />
+                }
+            </div>
+        )
+    }
+}
+
+export default UserPage;
+
+
+/*  userCredential={(user) => {
                         this.setState({ user: user.email })
                         localStorage.setItem("user", this.state.user)
                     }}
@@ -41,13 +57,4 @@ class UserPage extends Component {
 
                          })
 
-                    } }
-                    /> :
-                    <UserProfile userData={this.state.displayName} />
-                }
-            </div>
-        )
-    }
-}
-
-export default UserPage;
+                    } } */

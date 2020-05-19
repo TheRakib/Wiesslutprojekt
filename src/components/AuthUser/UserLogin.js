@@ -4,6 +4,7 @@
 // state 
 
 import React, {Component} from "react";
+//npm i react-firebaseui
 import StyledFirebaseAuth from 'react-firebaseui/StyledFirebaseAuth';
 import firebase from "../FirebaseConfig";
 import UserProfile from "./UserProfile";
@@ -21,20 +22,22 @@ uiConfig = {
   // Popup signin flow rather than redirect flow.
   signInFlow: 'popup',
   // Redirect to /signedIn after sign in is successful. Alternatively you can provide a callbacks.signInSuccess function.
-  signInSuccessUrl: '/userprofile',
+  signInSuccessUrl:'/userprofile',
   // We will display Google and Facebook as auth providers.
   signInOptions: [
     firebase.auth.GoogleAuthProvider.PROVIDER_ID,
     firebase.auth.FacebookAuthProvider.PROVIDER_ID,
-    firebase.auth.TwitterAuthProvider.PROVIDER_ID
+    firebase.auth.TwitterAuthProvider.PROVIDER_ID, 
+    firebase.auth.PhoneAuthProvider.PROVIDER_ID
   ]
 };
 
 componentDidMount(){
     firebase.auth().onAuthStateChanged((user)=>{
-       this.setState({user}) //user:user
+       this.setState({user:user.email}) //user:user
        console.log(user);
     })
+    //skicka data till parent
 }
  
  onClickRegister(){
@@ -52,10 +55,11 @@ const password = e.target.elements.password.value;
     firebase
     .auth()
     .signInWithEmailAndPassword(email, password)
-    .then(res=>
+    .then(
+        //res=>
     
     //anropa showDisplayName
-     this.props.userCredential(res.user.email)
+     //this.props.userCredential(res.user.email)
      
      )
     
@@ -80,9 +84,10 @@ const password = e.target.elements.password.value;
      .createUserWithEmailAndPassword(email, password)
      .then( (res)=>{
 
+// från child till parent med hjälp callback funktion 
          res.user.sendEmailVerification()
-         this.props.userCredential(res.user.email)
-         this.props.showDisplayName(displayName)
+        // this.props.userCredential(res.user.email)
+        // this.props.showDisplayName(displayName)
      })
      //.then(()=>{
      /*      firebase.auth().onAuthStateChanged((user)=>{
@@ -108,6 +113,15 @@ auth.sendPasswordResetEmail(emailAddress).then(function() {
 e.preventDefault();
  }
 
+ /* componentDidMount(){
+
+     firebase.auth().onAuthStateChanged((user)=>{
+                            user.updateProfile({
+                                displayName :username
+                            }))
+
+ }
+ } */
 
 
     render(){
