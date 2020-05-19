@@ -14,6 +14,7 @@ class UserProfile extends Component{
        
        localStorage.clear();
        window.location.reload(false);
+       //
        firebase.auth().signOut();
     }
     //hämta data från firebase
@@ -32,13 +33,17 @@ deleteAccount(){
     var user = firebase.auth().currentUser;
     console.log(user);
 
-   user.delete().then(function() {
+if(user){
+     user.delete().then(function() {
   // User deleted.
-  localStorage.clear();
+      localStorage.clear();
        window.location.reload(false);
 }).catch(function(error) {
   // An error happened.
 });
+
+}
+  
 
 }
     render(){

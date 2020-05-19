@@ -86,8 +86,10 @@ const password = e.target.elements.password.value;
 
 // från child till parent med hjälp callback funktion 
          res.user.sendEmailVerification()
-        // this.props.userCredential(res.user.email)
-        // this.props.showDisplayName(displayName)
+        //
+    this.props.userCredential(res.user.email)
+        // 
+    this.props.showDisplayName(displayName)
      })
      //.then(()=>{
      /*      firebase.auth().onAuthStateChanged((user)=>{

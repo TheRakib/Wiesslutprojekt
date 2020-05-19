@@ -11,9 +11,12 @@ class UserPage extends Component {
 
     }
 
+//life-cycle-metod 
+//render() -> compononentDidMount-> uppdateras state-> render() igen
+
 componentDidMount(){
     firebase.auth().onAuthStateChanged(
- user=> this.setState({user: user.email, displayName:user.displayName})
+      user=> this.setState({user: user.email, displayName:user.displayName})
     )
     
 }
@@ -22,22 +25,12 @@ componentDidMount(){
 //varje ändras state renderas componentet igen.
     render() {
 
-        const loggedIn = this.state.user || localStorage.getItem("user");
+        const loggedIn = this.state.user ||localStorage.getItem("user");
         return (
             <div>
                 {!loggedIn ?
-                    <UserLogin  /> :
-                    <UserProfile userData={this.state.displayName ||this.state.user} />
-                }
-            </div>
-        )
-    }
-}
-
-export default UserPage;
-
-
-/*  userCredential={(user) => {
+                    <UserLogin
+                    userCredential={(user) => {
                         this.setState({ user: user.email })
                         localStorage.setItem("user", this.state.user)
                     }}
@@ -57,4 +50,17 @@ export default UserPage;
 
                          })
 
-                    } } */
+                    } } 
+
+                      /> :
+                    <UserProfile userData={this.state.displayName ||this.state.user} />
+                }
+            </div>
+        )
+    }
+}
+
+export default UserPage;
+
+
+/*  */
