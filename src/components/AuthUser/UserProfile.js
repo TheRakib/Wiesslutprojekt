@@ -52,7 +52,7 @@ if(user){
                 Profile info {this.props.userData}
 
                   <button onClick={this.deleteAccount.bind(this)}> Radera konto</button>
-                 <button onClick={this.logOut.bind(this)}> Logout</button>
+                  <button onClick={this.logOut.bind(this)}> Logout</button>
                  
             </div>
         )
