@@ -38,3 +38,6 @@ render(){
 }
 export default Card;
 
+//database plus server sida i min dator
+// deploya den här i molnet -> heroku      
+//      extra: / digital ocean / aws / azure / GCP
