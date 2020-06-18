@@ -3,6 +3,8 @@
 import React, {Component} from "react";
 
 import firebase from "../FirebaseConfig";
+import Adminform from "../Adminform";
+import AdminSida from "../AdminSida";
 
 //navigate("/userprofile")
 
@@ -50,7 +52,8 @@ if(user){
         return(
             <div>
                 Profile info {this.props.userData}
-
+               
+                
                   <button onClick={this.deleteAccount.bind(this)}> Radera konto</button>
                   <button onClick={this.logOut.bind(this)}> Logout</button>
                  

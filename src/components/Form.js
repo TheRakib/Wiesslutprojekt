@@ -6,9 +6,9 @@ class Form extends Component {
 
         //initillerat state
         this.state = {
-            name: undefined,
-            appointmentTime: undefined,
-            mobile: undefined
+            name: "Ange ditt namn",
+            appointmentTime: "till ex. 10.00",
+            mobile: "x7x0000000"
         }
 
     }
@@ -16,8 +16,19 @@ class Form extends Component {
     //spara state i localStorage
     // this and arrow function
 
+//lägg dem in i handleOnChange
+// console.log("name properties" , e.target.name)
+   // console.log(e.target.value)
+     // [e.target.name] : 
+     //måste du ha name properties i input 
+      // name properties värdena måste vara samma state 
+handleOnChange = (e)=>{
+       this.setState({[e.target.name]: e.target.value})  
+}
 
-    /* handleOnChangeName = (e) => {
+
+
+   /*  handleOnChangeName = (e) => {
         this.setState({ name: e.target.value })
 
     }
@@ -26,8 +37,8 @@ class Form extends Component {
     }
     handleOnChangeMobile = (e) => {
         this.setState({ mobile: e.target.value })
-    }
- */
+    } */
+ 
 
 
     //skapa en metod 
@@ -44,22 +55,35 @@ class Form extends Component {
 
     //form kommer att anropa metoden med hjälp av event 
 
+// value properties
+// value properties kommer att ha värdet från state/this.state....
+// state ska ha default värdet 
+// state ska inte vara undefined/Null
 
     render() {
         return (
             <div>
-                <form onSubmit={this.handleOnSubmit}>
-                    <input type={"text"} placeholder={"ange ditt name"}  name={"Name"}></input>
-                    <input type={"text"} placeholder={"ange önskat datum"} name={"Time"}></input>
-                    <input type={"number"} placeholder={"ange telefon nummer"} name={"Mobile"}></input>
-                    <button >Bekräfta</button>
+                <form onSubmit={this.handleOnSubmit.bind(this)}>
+                    <input value={this.state.name} onChange={this.handleOnChange} type={"text"}   name={"name"}></input>
+                    <input value={this.state.appointmentTime} onChange={this.handleOnChange} type={"text"}  name={"appointmentTime"}></input>
+                    <input value={this.state.mobile}  onChange={this.handleOnChange} type={"number"}  name={"mobile"}></input>
+                    <button>Bekräfta</button>
                 </form>
-
-                {this.state.name}
+ 
+                {this.state.name}  <br/>
+                {this.state.appointmentTime} <br/>
+                {this.state.mobile}
             </div>
         )
     }
 
 }
 
+
+
 export default Form;
+
+
+// controlled elements : React har koll på alla value 
+ //or 
+// uncontrolled elements:  JS DOM 

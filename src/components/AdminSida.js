@@ -2,17 +2,24 @@ import React, { Component } from "react";
 import AdminProfile from "./Auth/AdminProfile";
 import AdminLogin from "./Auth/AdminLogin";
 class AdminSida extends Component {
+
+//constructor : När vi skapar en instans av klassen          //const adminsida= new AdminSida();   till ex. <AdminSida />
+// anropas constructor. 
+// ge default värde 
+   
     state = {
         user: null || localStorage.getItem("user"),
         jwt: null
     }
+
+
     callback(user, jwt) {
         this.setState({ user: user.email, jwt: jwt })
         localStorage.setItem("jwt", this.state.jwt)
         localStorage.setItem("user", this.state.user)
     }
 
-
+//child -> anropar -> callback("rakib", "sfsfdasdfa")
 
  //const enfunction = ()=> { }
 
@@ -22,7 +29,11 @@ class AdminSida extends Component {
         return (
             <div>
                 {!loggedIn ?
-                    <AdminLogin userCredential={this.callback.bind(this)} /> :
+                    <AdminLogin
+                    
+                    
+                    
+                     userCredential={this.callback.bind(this)} /> :
                     <AdminProfile userData={this.state.user} />
                 }
             </div>

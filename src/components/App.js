@@ -2,20 +2,41 @@
 import React, {Component} from "react";
 import Card from "./Card";
 import axios from "axios";
-
-
+import ViewEditToggle from "./HOC/ViewEditToggle";
+import CollapseExpand from "./HOC/CollapseExpand";
 
 
 //get 
 //post
 //put
 //delete
+
+// tech stack :    database : mysql, php, react
 class App extends Component{
 
+// State: hantera data inuti componentet 
 
       state={
-            products: []
+            products: [
+                  {
+                        id:1, name:"T-shirt"
+                  }, 
+                  {
+                        id:2 , name:"Jeans"
+                  }
+            ], 
+           
       }
+     
+// skapade strapi
+
+// skapade data inuti strapi 
+
+// från React -  fetch   Tredjeparts:  axios,      request-promise
+
+ // axios.get("Strapi-produkt-url")
+ // response: Lista av produkter
+
 
 
 // componentDidUpdate(){
@@ -36,9 +57,25 @@ async componentDidMount (){
 //this.state.products
 }
 
+
+// props - skicka data parent till child 
+//props.title, props.price  
+// ifall om det är en klass komponent: this.props.title
+
+
+// props :- child till parent 
+//   callback function
+
+
 render() {
     return(
           <div>
+               
+
+
+               <ViewEditToggle title ={"hello from wie19"}/>
+
+               <CollapseExpand list={this.state.products} />
 
                 {this.state.products.map((product) =>
                      
@@ -53,11 +90,16 @@ render() {
                 )}
                
 
+
+           
                
 
           </div>
 
     )
       }
+     
 }
 export default App;
+
+

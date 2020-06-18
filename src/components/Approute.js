@@ -4,6 +4,7 @@ import React from "react";
 import { BrowserRouter, Route, Switch} from "react-router-dom";
 
 import Booking from "./Booking";
+import Card from "./Card"
 
 import Navbar from "./Navbar"
 import Form from "./Form";
@@ -16,8 +17,12 @@ import FirebaseTest from "./FirebaseTest";
 import UserPage from "./AuthUser/UserPage";
 import UserProfile from "./AuthUser/UserProfile";
 import Contact from "./Contact";
+import ParentComponent from "./ParentComponent";
+
 //import UserLogin from "./AuthUser/UserLogin";
 //import Formular from "../pages/Formular"
+
+
 
 const Approute = ()=>{
 
@@ -27,8 +32,11 @@ const Approute = ()=>{
             <BrowserRouter>
 
                  <Navbar/>
-                 <Switch>
+                 <Switch>  
+                    
+            
                  <Route path="/" component={App} exact ></Route>
+                 <Route path="/card" component={Card} exact ></Route>
                  <Route path="/Bookings" component= {Booking} exact></Route>
                  <Route path="/form" exact component= {Form}></Route>
                  <Route path="/userprofile" exact component={UserProfile}></Route> 
@@ -37,7 +45,7 @@ const Approute = ()=>{
 
                  <Route path="/contact" exact component={Contact}></Route>
                  
-                
+                 
                  
                  
                  <Route path="/userpage" exact component= {UserPage}></Route>

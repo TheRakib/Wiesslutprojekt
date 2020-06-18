@@ -64,6 +64,12 @@ onSubmitLogin(e){
     console.log('User profile', response.data.user);
     console.log('User token', response.data.jwt);
     //localhost eller state med response data
+    //this.props.name
+    
+   // child -> anropar -> callback("rakib", "sfsfdasdfa")
+   // this.props.userCredential("1", "2");
+
+
      this.props.userCredential(response.data.user, response.data.jwt)
   })
   .catch(error => {
