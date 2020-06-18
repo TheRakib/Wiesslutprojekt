@@ -70,8 +70,7 @@ async componentDidMount (){
 render() {
     return(
           <div>
-               
-
+            
 
                <ViewEditToggle title ={"hello from wie19"}/>
 
